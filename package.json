@@ -1,0 +1,62 @@
+{
+  "name": "rpg-masterplan",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "tsc -b && electron-vite build",
+    "lint": "oxlint",
+    "preview": "electron-vite preview",
+    "dist": "tsc -b && electron-vite build && electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.antoniohamilton.rpgmasterplan",
+    "productName": "RPG Master Plan",
+    "asar": true,
+    "files": [
+      "out/**/*"
+    ],
+    "extraResources": [
+      { "from": "build/icon.png", "to": "icon.png" }
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": "portable"
+    },
+    "portable": {
+      "artifactName": "RPG Master Plan.exe"
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.11.2",
+    "chokidar": "^5.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zustand": "^5.0.14"
+  },
+  "overrides": {
+    "@noble/hashes": "1.8.0"
+  },
+  "devDependencies": {
+    "@oxlint/binding-win32-x64-msvc": "^1.71.0",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^41.7.1",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^3.1.0",
+    "oxlint": "^1.71.0",
+    "png-to-ico": "^3.0.2",
+    "sharp": "^0.35.3",
+    "typescript": "~6.0.2",
+    "vite": "^6.4.3"
+  }
+}
